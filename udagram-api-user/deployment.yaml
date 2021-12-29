@@ -17,8 +17,7 @@ spec:
       containers:
         - name: backend-user
           image: babadee30/udagram-api-user:v2
-          ports:
-            - containerPort: 8080
+          imagePullPolicy: Always
           envFrom:
           - secretRef:
               name: udagram-secret

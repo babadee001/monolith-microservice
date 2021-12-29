@@ -17,8 +17,14 @@ spec:
       containers:
         - name: backend-feed
           image: babadee30/udagram-api-feed:v2
-          ports:
-            - containerPort: 8080
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
           envFrom:
           - secretRef:
               name: udagram-secret
