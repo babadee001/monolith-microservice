@@ -18,7 +18,7 @@ spec:
         - name: backend-feed
           image: babadee30/udagram-api-feed:v2
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           envFrom:
           - secretRef:
               name: udagram-secret
