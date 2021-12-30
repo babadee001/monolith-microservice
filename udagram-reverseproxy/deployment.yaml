@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-reverseproxy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: udagram-reverseproxy
@@ -17,8 +17,9 @@ spec:
       containers:
         - name: udagram-reverseproxy
           image: babadee30/udagram-reverseproxy:v2
+          imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8080
       volumes:
         - name: udagram-reverseproxy-secret
           secret:
