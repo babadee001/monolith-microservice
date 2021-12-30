@@ -18,5 +18,12 @@ spec:
         - name: udagram-frontend
           image: babadee30/udagram-frontend:v2
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "2048Mi"
+              cpu: "1000m" 
           ports:
             - containerPort: 80

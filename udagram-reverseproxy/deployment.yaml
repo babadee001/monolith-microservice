@@ -18,6 +18,13 @@ spec:
         - name: udagram-reverseproxy
           image: babadee30/udagram-reverseproxy:v2
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "2048Mi"
+              cpu: "1000m" 
           ports:
             - containerPort: 8080
       volumes:

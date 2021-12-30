@@ -18,6 +18,13 @@ spec:
         - name: backend-feed
           image: babadee30/udagram-api-feed:v2
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "2048Mi"
+              cpu: "1000m" 
           volumeMounts:
             - name: aws-secret
               mountPath: "/root/.aws/"
