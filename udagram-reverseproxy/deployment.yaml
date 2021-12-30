@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-reverseproxy
+  labels:
+    app: udagram-reverseproxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-reverseproxy
+  template:
+    metadata:
+      labels:
+        app: udagram-reverseproxy
+    spec:
+      containers:
+        - name: udagram-reverseproxy
+          image: babadee30/udagram-reverseproxy:v2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      volumes:
+        - name: udagram-reverseproxy-secret
+          secret:
+            secretName: microservice
