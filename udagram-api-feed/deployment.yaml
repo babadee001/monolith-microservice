@@ -18,6 +18,14 @@ spec:
         - name: backend-feed
           image: babadee30/udagram-api-feed:v2
           imagePullPolicy: Always
+          volumeMounts:
+            - name: aws-secret
+              mountPath: "/root/.aws/"
+              readOnly: true 
           envFrom:
           - secretRef:
               name: udagram-secret
+      volumes:
+      - name: aws-secret
+        secret:
+          secretName: aws-secret
